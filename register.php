@@ -1,4 +1,7 @@
-<?php include 'Components/navbar.php' ?>
+<?php 
+    include 'Components/navbar.php';
+    include 'Utils/server.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,29 +15,29 @@
 <body>
     <div class="container d-flex align-items-center justify-content-center vh-100">
         <div class="col-md-4">
-            <form>
+            <form method="post" action="register.php" >
                 <div class="mb-3">
                     <div class="text-center">
                         <h1>Inregistrare</h1>
                     </div>
                     <label for="exampleInputEmail1" class="form-label">Last Name</label>
-                    <input type="email" class="form-control" name="last_name" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" name="last_name" aria-describedby="emailHelp" required="true">
                 </div>
                 <div class="mb-3">
                     <label for="InputPassword" class="form-label">First Name</label>
-                    <input type="text" class="form-control" name="first_name">
+                    <input type="text" class="form-control" name="first_name" required="true">
                 </div>
                 <div class="mb-3">
                     <label for="InputPassword" class="form-label">Email</label>
-                    <input type="email" class="form-control" name="email">
+                    <input type="email" class="form-control" name="email" required="true">
                 </div>
                 <div class="mb-3">
                     <label for="InputPassword" class="form-label">Password</label>
-                    <input type="password" class="form-control" name="pass">
+                    <input type="password" class="form-control" name="pass" required="true">
                 </div>
                 <div class="mb-3">
                     <label for="InputPassword" class="form-label">Repeat Password</label>
-                    <input type="password" class="form-control" name="repeat_pass">
+                    <input type="password" class="form-control" name="re_pass" required="true">
                 </div>
                 <div class="col text-center">
                     <button type="submit" class="btn btn-success" name="reg_user">Register</button>
