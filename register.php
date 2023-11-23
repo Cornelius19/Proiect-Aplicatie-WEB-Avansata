@@ -1,7 +1,4 @@
-<?php 
-    include 'Components/navbar.php';
-    include 'Utils/server.php';
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +10,12 @@
 </head>
 
 <body>
+<?php include 'Components/navbar.php';?>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+        integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    </script>
+    <?php include 'Utils/server.php';?>
     <div class="container d-flex align-items-center justify-content-center vh-100">
         <div class="col-md-4">
             <form method="post" action="register.php" >
@@ -49,7 +52,6 @@
 
     </div>
 
-    <script src="js/bootsrap.min.js"></script>
 </body>
 
 </html>

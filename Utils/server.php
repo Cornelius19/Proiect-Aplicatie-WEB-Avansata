@@ -1,7 +1,7 @@
 <?php
 session_start();
-   include 'db_connect.php';
-   include 'Components/errorMessage.php';
+    include 'db_connect.php';
+    include 'Components/errorMessage.php';
     $db1 = new DataBase();
     $db = $db1->connnectDataBase();
     $errors = array();
@@ -18,26 +18,28 @@ session_start();
         $result = mysqli_query($db,$user_check_query);
         $user = mysqli_fetch_assoc($result);
 
-            if($user){
-                if($user['email'] === $email){
-                    echo "email inregistrat";
-                }
-            }
-        if($password === $repassword ){
+           
+        if($user){
+            echo "Email deja inregistrat!";
+        }
+        else{
+            if($password === $repassword ){
                 $password = md5($repassword);
                 $query = "INSERT INTO users (LastName,FirstName, email, pass)
-                        VALUES('$lastName','$firstName','$email','$password')";
+                    VALUES('$lastName','$firstName','$email','$password')";
                 mysqli_query($db,$query);
-                $_SESSION['username'] = $firstName;
-                $_SESSION['succes'] = "You are logged in";
+                $date = $firstName." ".$lastName;
+                $_SESSION['date_logare'] = $date;
                 header('location: index.php');
             }
-        else{
-                $error1 = "Uh-oh! 🙈 Looks like you entered the wrong credentials. Double-check your username and password and try again. ✨";
-                showErrorMessage($error1, "Wrong credidentials");
-                $_POST['reg_user'] = null; 
-            }
+            else{
+                $error = "Parolele nu coincid!";
+                $_POST['reg_user'] = null;
+                showErrorMessage($error, "Error :D");
+            }   
     }
+}
+        
 
     //logarea 
     if (isset($_POST['logare'])) {
@@ -46,27 +48,34 @@ session_start();
       
         if (empty($email)) {
             array_push($errors, "Username is required");
-            showErrorMessage($errors);
         }
         if (empty($password)) {
             array_push($errors, "Password is required");
         }
       
         if (count($errors) == 0) {
-            echo("Nu avem nici o eroare :)");
-            $query = "SELECT * FROM users WHERE email='$email' AND pass='$password'";
+            $pass = md5($password);
+            $query = "SELECT * FROM users WHERE email='$email' AND pass='$pass'";
             $results = mysqli_query($db, $query);
+            $rezultat = mysqli_fetch_assoc($results);
+            $lastName = $rezultat['LastName'];
+            $firstName = $rezultat['FirstName'];
+            $date = $lastName." ".$firstName;
             if (mysqli_num_rows($results) == 1) {
-              $_SESSION['email'] = $email;
-              $_SESSION['success'] = "You are now logged in";
-              header('location: index.php');
+                $_SESSION['date_logare'] = $date;
+                header('location: index.php');
             }else {
-                $error = "Uh-oh! 🙈 Looks like you entered the wrong credentials. Double-check your username and password and try again. ✨";
-      showErrorMessage($error, "Wrong credidentials");
-      $_POST['logare'] = null;
+                $error = "Parola nu coincide!!!";
+                $_POST['logare'] = null;
+                showErrorMessage($error, "Eroare la inregistrare!");
             }
         }
+
         
+    }
+    if(isset($_POST['close_session'])){
+        session_destroy();
+        header('location: logare.php');
     }
     
     

@@ -1,5 +1,4 @@
-<?php
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,7 +47,6 @@
         </div>
 
     </div>
-    s
 </body>
 
 </html>
