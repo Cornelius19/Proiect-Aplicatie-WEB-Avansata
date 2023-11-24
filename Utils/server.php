@@ -38,6 +38,7 @@ session_start();
                 showErrorMessage($error, "Error :D");
             }   
     }
+    mysqli_close($db);
 }
         
 
@@ -52,7 +53,6 @@ session_start();
         if (empty($password)) {
             array_push($errors, "Password is required");
         }
-      
         if (count($errors) == 0) {
             $pass = md5($password);
             $query = "SELECT * FROM users WHERE email='$email' AND pass='$pass'";
@@ -70,14 +70,70 @@ session_start();
                 showErrorMessage($error, "Eroare la inregistrare!");
             }
         }
-
+        mysqli_close($db);
         
     }
     if(isset($_POST['close_session'])){
         session_destroy();
         header('location: logare.php');
     }
+
+    //rezervare
+    if(isset($_POST['validate'])){
+        $meseBlocate = array();
+        $data = ($_POST['data_introdusa']);
+        $ora = (($_POST['ora_introdusa']));
+        $persoane = ($_POST['nr_de_persoane']);
+        $q1 = "SELECT * FROM bookings WHERE DATE(bookingDate) = '$data'";
+        $r1 = mysqli_query($db,$q1);
+        if(mysqli_num_rows($r1) > 0){
+            $bookings = mysqli_fetch_all($r1,MYSQLI_ASSOC);
+            foreach($bookings as $booking){
+                $oraStart = new DateTime($booking["bookingDate"]);
+                $oraStop = new DateTime($booking["bookingDate"]);
+                $oraStop->modify('+1 hours');
+            
+                $oraStart1 = $oraStart->format('H:i');
+                $oraStop1 = $oraStop->format('H:i');
     
+                if($ora >= $oraStart1 && $ora <= $oraStop1 ){
+                    array_push($meseBlocate,$booking['tableID']);
+                }
+            }
+            $meseStmt = "SELECT * FROM tables";
+            $meseQuery = mysqli_query($db,$meseStmt);
+            $mese = mysqli_fetch_all($meseQuery,MYSQLI_ASSOC);
+            foreach($mese as $masa){
+                if(in_array($masa['tableID'],$meseBlocate)){
+                    echo ('<div class="col">
+                    <button class="btn btn-danger" disabled> Masa '.$masa['tableID'].' </button>
+                    </div>');
+                }else{
+                    echo ('<div class="col">
+                    <button class="btn btn-success" enabled> Masa '.$masa['tableID'].' </button>
+                    </div>');
+
+                }
+            }
+        }
+        else{
+            $meseStmt = "SELECT * FROM tables";
+            $meseQuery = mysqli_query($db,$meseStmt);
+            $mese = mysqli_fetch_all($meseQuery,MYSQLI_ASSOC);
+            foreach($mese as $masa){
+                if(in_array($masa['tableID'],$meseBlocate)){
+                    echo ('<div class="col">
+                    <button class="btn btn-danger" disabled> Masa '.$masa['tableID'].' </button>
+                    </div>');
+                }else{
+                    echo ('<div class="col">
+                    <button class="btn btn-success" enabled> Masa '.$masa['tableID'].' </button>
+                    </div>');
+        }   }
+        mysqli_close($db);
+    }
+
+}
     
     
 ?>

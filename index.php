@@ -1,9 +1,6 @@
 <?php
-include 'Utils/server.php';
+ include 'Utils/server.php';
 
-if(empty($_SESSION['date_logare'])){
-    echo "Va rog sa va logati!!!";
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,28 +13,33 @@ if(empty($_SESSION['date_logare'])){
 </head>
 
 <body>
+    <!-- //Daca nu este logat nici un user!!! -->
+    <?php if(empty($_SESSION['date_logare'])): ?>
+    <?php
+    include 'Components/navbar.php'
+    ?>
+    <div class="container d-flex align-items-center justify-content-center vh-100 ">
+        <div class="text-center">
+            <div class="alert alert-primary">
+                Daca doriti sa rezervati o masa va rog sa va logati!!!
+                <p class="mb-0">Va multumesc mult!</p>
+            </div>
+        </div>
+    </div>
+
+    <?php endif ?>
+
+
     <?php  if (isset($_SESSION['date_logare'])) : ?>
+    <?php include 'Components/navbar_log.php' ?>
     <p>Welcome
-         <strong>
+        <strong>
             <?php
                 echo $_SESSION['date_logare'];
-                echo " ";
-                //echo $_SESSION['success'];
             ?>
         </strong>
     </p>
-
     <?php endif ?>
-    <?php
-    function closeSession(){
-        session_close();
-    }
-    ?>
-    <form action="index.php" method="post">
-        <button class="btn btn-primary" type="submit" name="close_session">
-            Log out
-        </button>
-    </form>
 
     <script src="js/bootsrap.min.js"></script>
 </body>
