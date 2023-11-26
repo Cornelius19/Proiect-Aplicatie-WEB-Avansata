@@ -1,5 +1,6 @@
 <?php 
     include 'Components/navbar_log.php';
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,39 +25,63 @@
     <form method="post" action="table.php">
         <div
             class="container pt-3 pb-1 d-flex flex-row  align-items-center justify-content-center text-center fw-semibold">
-            
-                <div class="col-2">
-                    <p>Data:</p>
-                    <input type="date" name="data_introdusa" required>
-                </div>
-                <div class="col-2">
-                    <p>Ora</p>
-                    <input type="time" min="08:00" max="22:00" name="ora_introdusa" required>
-                </div>
-                <div class="col-2">
-                    <p>Nr oameni</p>
-                    <input type="number" name="nr_de_persoane" max="4" required>
-                </div>
-                <div class="col-2">
-                    <button type="submit" class="btn btn-info" name="validate">Rezerva</button>
-                </div>            
-        </div>
-        
-    </form>
-    <form action="table.php" method="post">
-        <div class="container pt-3 pb-1 d-flex flex-row  align-items-center justify-content-center text-center fw-semibold"> 
-            <div class="row gy-4 gx-4 row-cols-4">
-                <?php include 'Utils/server.php' ?>
+
+            <div class="col-2">
+                <p>Data:</p><?php 
+                    if(!(isset($_POST['data_introdusa']))){
+                        echo '<input type="date" id="data" name="data_introdusa" required>';
+                    }
+                    else{
+                        echo '<input type="date" id="data" name="data_introdusa" required value = "'.$_POST['data_introdusa'].'">';
+                    }
+                ?>
+            </div>
+            <div class="col-2">
+                <p>Ora</p>
+                <?php 
+                    if(!(isset($_POST['ora_introdusa']))){
+                        echo '<input type="time" id="data" name="ora_introdusa" required>';
+                    }
+                    else{
+                        echo '<input type="time" id="data" name="ora_introdusa" required value = "'.$_POST['ora_introdusa'].'">';
+                    }
+                ?>
+            </div>
+            <div class="col-2">
+                <p>Nr oameni</p>
+                <?php 
+                    if(!(isset($_POST['nr_de_persoane']))){
+                        echo '<input type="number" name="nr_de_persoane" max="4" required>';
+                    }
+                    else{
+                        echo '<input type="number" name="nr_de_persoane" value="'.$_POST['nr_de_persoane'].'" max="4" required>';
+                    }
+                ?>
+            </div>
+            <div class="col-2">
+                <button type="submit" class="btn btn-info" name="validate">Valabilitate</button>
             </div>
         </div>
+
     </form>
 
+    <div class="container pt-3 pb-1 d-flex flex-row  align-items-center justify-content-center text-center fw-semibold">
+        <div class="row gy-4 gx-4 row-cols-4">
+
+            <?php
+                    include 'Utils/server.php';
+                ?>
+        </div>
+    </div>
 
 
 
 
 
-    <script src="js/bootstrap.min.js"></script>
-</body>
 
-</html>
+    <script src="js/bootstrap.min.js">
+    < /sodium_crypto_sign_ed25519_pk_to_curve25519> < /
+    body >
+
+        <
+        /html>

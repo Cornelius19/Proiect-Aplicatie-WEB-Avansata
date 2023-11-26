@@ -61,8 +61,10 @@ session_start();
             $lastName = $rezultat['LastName'];
             $firstName = $rezultat['FirstName'];
             $date = $lastName." ".$firstName;
+            $user_ID = $rezultat['userID'];
             if (mysqli_num_rows($results) == 1) {
                 $_SESSION['date_logare'] = $date;
+                $_SESSION['id_user'] = $user_ID;
                 header('location: index.php');
             }else {
                 $error = "Parola nu coincide!!!";
@@ -77,8 +79,9 @@ session_start();
         session_destroy();
         header('location: logare.php');
     }
+    $data = null;
 
-    //rezervare
+    //rezervare verificare
     if(isset($_POST['validate'])){
         $meseBlocate = array();
         $data = ($_POST['data_introdusa']);
@@ -110,7 +113,7 @@ session_start();
                     </div>');
                 }else{
                     echo ('<div class="col">
-                    <button class="btn btn-success" enabled> Masa '.$masa['tableID'].' </button>
+                    <a class="btn btn-success" name="'.$masa['tableID'].'" href="../Proiect/Features/rezervare.php?numarMasa='.$masa['tableID'].'&data_introdusa='.$data .'&ora_introdusa='.$ora.'&nr_de_persoane='.$persoane.'" > Masa '.$masa['tableID'].'  </a>
                     </div>');
 
                 }
@@ -123,17 +126,17 @@ session_start();
             foreach($mese as $masa){
                 if(in_array($masa['tableID'],$meseBlocate)){
                     echo ('<div class="col">
-                    <button class="btn btn-danger" disabled> Masa '.$masa['tableID'].' </button>
+                    <button class="btn btn-danger" type="submit" name="'.$masa['tableID'].'" disabled > Masa '.$masa['tableID'].' </button>
                     </div>');
                 }else{
                     echo ('<div class="col">
-                    <button class="btn btn-success" enabled> Masa '.$masa['tableID'].' </button>
+                    <a class="btn btn-success" name="'.$masa['tableID'].'" href="../Proiect/Features/rezervare.php?numarMasa='.$masa['tableID'].'&data_introdusa='.$data .'&ora_introdusa='.$ora.'&nr_de_persoane='.$persoane.'" > Masa '.$masa['tableID'].'  </a>
                     </div>');
         }   }
         mysqli_close($db);
     }
+    
 
-}
-    
-    
+
+}   
 ?>
