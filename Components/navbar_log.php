@@ -1,3 +1,9 @@
+<?php
+    if(isset($_POST['close_session'])){
+        session_destroy();
+        header('location: logareHTML.php');
+    }
+?>
 <nav class="navbar navbar-expand-md bg-body-tertiary">
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">
@@ -5,7 +11,7 @@
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="table.php">Tables</a>
+                    <a class="nav-link" href="tableHTML.php">Tables</a>
                 </li>
                 <!-- <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>

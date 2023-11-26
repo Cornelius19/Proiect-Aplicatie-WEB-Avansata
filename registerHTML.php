@@ -15,10 +15,10 @@
         integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
     </script>
-    <?php include 'Utils/server.php';?>
+    <?php include 'Features/register.php';?>
     <div class="container d-flex align-items-center justify-content-center vh-100">
         <div class="col-md-4">
-            <form method="post" action="register.php" >
+            <form method="post" action="registerHTML.php" >
                 <div class="mb-3">
                     <div class="text-center">
                         <h1>Inregistrare</h1>

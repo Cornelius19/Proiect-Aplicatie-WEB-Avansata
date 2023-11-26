@@ -1,6 +1,5 @@
 <?php 
     include 'Components/navbar_log.php';
-    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,17 +21,17 @@
     </div>
 
     <!-- Formularul de rezervare -->
-    <form method="post" action="table.php">
+    <form method="post" action="tableHTML.php">
         <div
             class="container pt-3 pb-1 d-flex flex-row  align-items-center justify-content-center text-center fw-semibold">
 
             <div class="col-2">
                 <p>Data:</p><?php 
                     if(!(isset($_POST['data_introdusa']))){
-                        echo '<input type="date" id="data" name="data_introdusa" required>';
+                        echo '<input type="date" min="2023-11-26" max="2024-01-31"  id="data" name="data_introdusa" required>';
                     }
                     else{
-                        echo '<input type="date" id="data" name="data_introdusa" required value = "'.$_POST['data_introdusa'].'">';
+                        echo '<input type="date" id="data" min="2023-11-26" max="2024-01-31" name="data_introdusa" required value = "'.$_POST['data_introdusa'].'">';
                     }
                 ?>
             </div>
@@ -40,10 +39,10 @@
                 <p>Ora</p>
                 <?php 
                     if(!(isset($_POST['ora_introdusa']))){
-                        echo '<input type="time" id="data" name="ora_introdusa" required>';
+                        echo '<input type="time" min="08:00" max="22:00" id="data" name="ora_introdusa" required>';
                     }
                     else{
-                        echo '<input type="time" id="data" name="ora_introdusa" required value = "'.$_POST['ora_introdusa'].'">';
+                        echo '<input type="time" min="08:00" max="22:00" id="data" name="ora_introdusa" required value = "'.$_POST['ora_introdusa'].'">';
                     }
                 ?>
             </div>
@@ -69,7 +68,7 @@
         <div class="row gy-4 gx-4 row-cols-4">
 
             <?php
-                    include 'Utils/server.php';
+                    include 'Features/rezervare_verificare.php';
                 ?>
         </div>
     </div>

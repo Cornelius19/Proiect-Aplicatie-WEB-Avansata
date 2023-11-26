@@ -11,7 +11,7 @@
                     <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="logare.php">Login</a>
+                    <a class="nav-link active" aria-current="page" href="logareHTML.php">Login</a>
                 </li>
             </ul>
         </div>

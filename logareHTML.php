@@ -15,11 +15,11 @@
         integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
     </script>
-    <?php include 'Utils/server.php';?>
+    <?php include 'Features/logare.php';?>
     </script>
     <div class="container d-flex align-items-center justify-content-center vh-100">
         <div class="col-md-4">
-            <form method="post" action="logare.php">
+            <form method="post" action="logareHTML.php">
                 <div class="mb-3">
                     <div class="text-center">
                         <h1>Logare</h1>
@@ -40,7 +40,7 @@
                 <div class="col text-center">
                     <button type="submit" class="btn btn-success" name="logare">LogIn</button>
                     <button type="button" class="btn btn-warning"
-                        onClick="document.location.href='register.php'">Register</button>
+                        onClick="document.location.href='registerHTML.php'">Register</button>
                 </div>
             </form>
 
