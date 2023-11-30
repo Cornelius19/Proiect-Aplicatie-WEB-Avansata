@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
     <!-- Mesajul de sus -->
     <div class="card mx-auto col-md-8 ">
         <div class="card-body text-center text-bg-dark">
@@ -19,7 +20,6 @@
             <p>O masa are capacitatea maxima de 4 persoane</p>
         </div>
     </div>
-
     <!-- Formularul de rezervare -->
     <form method="post" action="tableHTML.php">
         <div
@@ -72,15 +72,6 @@
                 ?>
         </div>
     </div>
-
-
-
-
-
-
     <script src="js/bootstrap.min.js">
-    < /sodium_crypto_sign_ed25519_pk_to_curve25519> < /
-    body >
-
-        <
-        /html>
+    < /body>        <
+    /html>

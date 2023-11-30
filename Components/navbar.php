@@ -1,4 +1,6 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg navbar-dark " style="
+background-color: rgba(0,0,0,0.5)
+">
     <div class="container-fluid">
         <a class="navbar-brand">SD BAR</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"

@@ -20,7 +20,7 @@ if($_SESSION['date_logare']){
         $dateTimeString = $dataFormatata . ' ' . $oraFormatata;
         $nr_persoane = intval($_GET['nr_de_persoane']);
 
-        $quetyStmt = "INSERT INTO bookings(bookingDate,userID,tableID,durata) VALUES('$dateTimeString',$userID,'$numarMasa',1)";
+        $quetyStmt = "INSERT INTO bookings(bookingDate,userID,tableID,durata,nr_persoane) VALUES('$dateTimeString',$userID,'$numarMasa',1,'$nr_persoane')";
         $query = mysqli_query($db,$quetyStmt);
         header('location:../aprobatHTML.php');        
 }
@@ -29,7 +29,7 @@ else{
 }
 }
 else{
-    echo "bitch";
+    echo "";
 }
 mysqli_close($db);
 

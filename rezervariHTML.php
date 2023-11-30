@@ -1,6 +1,6 @@
-<?php
-session_start();
-include 'Components/navbar_log.php';
+<?php 
+    include 'Components/navbar_log.php';
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +21,9 @@ include 'Components/navbar_log.php';
     left: 0;
     z-index: -1;
     ">
-    <h1 align="center" style="color:white" >Felicitari ati facut rezervarea, puteti sa vedeti rezervarile pe pagina Rezervarile mele!</h1>
-    
+<?php
+    include 'Features/rezervarile.php';
+?>
+    <script src="js/bootstrap.min.js">
 </body>
 </html>
