@@ -16,6 +16,9 @@ background-color: rgba(0,0,0,0.5)
             <li class="nav-item">
                 <a class="nav-link" href="tableHTML.php" style="color:white">Tables</a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="magazinHTML.php" style="color:white">Magazin</a>
+            </li>
         </ul>
     </div>
     <div class="mx-auto order-0">
@@ -32,6 +35,9 @@ background-color: rgba(0,0,0,0.5)
                         Rezervarile mele
                     </button>
                 </form>
+            </li>
+            <li>
+                <a href="cosHTML.php" class="btn" style="color:white">Cos</a>
             </li>
             <li class="nav-item">
                 <form action="index.php" method="post">

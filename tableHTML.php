@@ -50,7 +50,7 @@
                 <p>Nr oameni</p>
                 <?php 
                     if(!(isset($_POST['nr_de_persoane']))){
-                        echo '<input type="number" name="nr_de_persoane" max="4" required>';
+                        echo '<input type="number" name="nr_de_persoane" min="1" max="4" required>';
                     }
                     else{
                         echo '<input type="number" name="nr_de_persoane" value="'.$_POST['nr_de_persoane'].'" max="4" required>';
