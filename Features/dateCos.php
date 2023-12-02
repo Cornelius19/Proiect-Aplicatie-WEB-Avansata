@@ -14,5 +14,5 @@ $db = $db1->connnectDataBase();
     
     //echo "Products is: '".implode("','",$_SESSION['cos'])."'<br>";
    header('location:../magazinHTML.php');
-        
+mysqli_close($db); 
 ?>

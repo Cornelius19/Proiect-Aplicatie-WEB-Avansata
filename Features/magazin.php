@@ -11,7 +11,7 @@ if(mysqli_num_rows($query)){
     $result = mysqli_fetch_all($query,MYSQLI_ASSOC);
     foreach($result as $product){
         echo '<div class="col">
-                <div class="card">
+                <div class="card" style="height: 100%">
                     <img src="'.$product['photoPath'].'" class="card-img item-image mx-auto d-block"
                     alt="Photo of ' .$product['productName'].'" width="1000" height="300" />
                         <div class="card-body">
@@ -19,10 +19,13 @@ if(mysqli_num_rows($query)){
                             <p class="card-text">
                                 '.$product['descriere'].'
                             </p>
+                            <div class="d-flex  ">
                             <a name="'.$product['productID'].'" href="../Proiect/Features/dateCos.php?productID='.$product['productID'].'" class="btn btn-success">
                                 Adauga cos
                             </a>
+                            <h3 class="ms-auto"> '.$product['productPrice'].' $</h3>
                         </div>
+                            </div>
                 </div>
             </div>';
     }
