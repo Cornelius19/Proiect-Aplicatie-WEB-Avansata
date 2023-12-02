@@ -1,6 +1,4 @@
-<?php 
-    include 'Components/navbar_log.php';
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +10,9 @@
 </head>
 
 <body>
-
+<?php 
+    include 'Components/navbar_log.php';
+?>
     <!-- Mesajul de sus -->
     <div class="card mx-auto col-md-8 ">
         <div class="card-body text-center text-bg-dark">

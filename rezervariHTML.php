@@ -1,7 +1,4 @@
-<?php 
-    include 'Components/navbar_log.php';
-    
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +8,9 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
+<?php 
+    include 'Components/navbar_log.php';
+?>
 <img src="Pics/1158153.jpg" style="
     height: 100vh;
     width: 100vw;

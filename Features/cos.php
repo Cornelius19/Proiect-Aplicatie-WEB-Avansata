@@ -8,6 +8,9 @@ $query = mysqli_query($db,$querySTMT);
 $newArray = array();
 $total = 0;
 if(mysqli_num_rows($query)){
+    if(!isset($_SESSION['cos'])){
+        $_SESSION['cos'] = array();
+    }
     echo '<table class="table table-dark table-striped"><thead><tr align="center"><th scope="col">Numele Produsului</th><th scope="col">Pretul</th>
         <th scope="col">Cantitatea</th><th scope="col">Valoare</th><th scope="col">Modifica</th></thead>';
     $result = mysqli_fetch_all($query,MYSQLI_ASSOC); 
@@ -43,14 +46,20 @@ if(mysqli_num_rows($query)){
     }
     $_SESSION['cos'] = $newArray; 
     echo '</table>';
-    echo '<h1>TOTAL: '.$total.' $ </h1>';
-    echo '    <form method="post">
-    <button type="submit" class="btn btn-success" name="buy">
-        Buy
-    </button>
-        </form>';
+    echo '
+    <div > 
+    <h1 >TOTAL: '.$total.' $ </h1>
+        <form method="post">
+            <button type="submit" class="btn btn-success" name="buy">
+                Buy
+            </button>
+        </form>
+        </div>';
         if(isset($_POST["buy"])){
-            header('location:index.php');
+            
+
+
+            header('location:comenziHTML.php');
         }
 }  
 mysqli_close($db);  

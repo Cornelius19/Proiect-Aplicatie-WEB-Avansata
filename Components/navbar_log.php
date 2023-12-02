@@ -23,12 +23,19 @@ background-color: rgba(0,0,0,0.5)
     </div>
     <div class="mx-auto order-0">
         <a class="navbar-brand ms-auto" href="#">SD Coffe</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
             <span class="navbar-toggler-icon"></span>
-        </button>
+        </button> -->
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+                <form action="comenziHTML.php" method="post">
+                    <button  class="btn " type="submit" name="comenzi" style="color:white">
+                        Comenziile Mele
+                    </button>
+                </form>
+            </li>
         <li class="nav-item">
                 <form action="rezervariHTML.php" method="post">
                     <button  class="btn " type="submit" name="detalii" style="color:white">
