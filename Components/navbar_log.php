@@ -14,7 +14,7 @@ background-color: rgba(0,0,0,0.5)
                 <a class="nav-link" href="index.php" style="color:white">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="tableHTML.php" style="color:white">Tables</a>
+                <a class="nav-link" href="tableHTML.php" style="color:white">Rezervare</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="magazinHTML.php" style="color:white">Magazin</a>

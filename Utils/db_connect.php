@@ -3,7 +3,7 @@
         public $serverName = "localhost";
         public $userName = "root";
         public $password = "";
-        public $dbName = "proiect_php";
+        public $dbName = "proiect_php1";
 
         function connnectDataBase(){
             $con = mysqli_connect($this->serverName,$this->userName,$this->password,$this->dbName);

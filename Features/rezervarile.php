@@ -15,8 +15,8 @@
             $bookID = $result['bookingID'];
             echo '<tr>
             <td class="text-center align-middle"> '.$result['bookingDate'].' </td>
-            <td class="text-center align-middle"> '.$result['tableID'].' </td>
-            <td class="text-center align-middle"> '.$result['durata'].' </td>
+            <td class="text-center align-middle"> Masa '.$result['tableID'].' </td>
+            <td class="text-center align-middle"> '.$result['durata'].' ora </td>
             <td class="text-center align-middle"> '.$result['nr_persoane'].' </td>
             <td class="text-center align-middle"> <form method="post" action="rezervariHTML.php">
             <button name="'.$bookID.'"  type="submit" class="btn btn-warning" >Cancel</button>
