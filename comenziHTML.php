@@ -17,8 +17,10 @@
     left: 0;
     z-index: -1;
     ">
-    <?php include 'Components/navbar_log.php';
-    include 'Features/cos.php';
+    
+    <?php
+    include 'Components/navbar_log.php';
+    include 'Features/comenzi.php';
     ?>
     <script src="js/bootsrap.min.js"></script>
 </body>

@@ -6,10 +6,8 @@ $db = $db1->connnectDataBase();
 $querySTMT = "SELECT * FROM products ";
 $query = mysqli_query($db,$querySTMT);
 $newArray = array();
+
 $total = 0;
-if(isset($_POST["buy"])){
-    header('location: comenziHTML.php');
-}
 if(mysqli_num_rows($query)){
     if(!isset($_SESSION['cos'])){
         $_SESSION['cos'] = array();
@@ -31,13 +29,14 @@ if(mysqli_num_rows($query)){
                 <td class="text-center align-middle"> '.$product['productPrice'].'$ </td>
                 
                 <form action="cosHTML.php" method="post">
-                <td class="text-center align-middle">  <input min="0" max="100" type="number" value="'.$nrDeProduse.'" name="input'.$product['productID'].'"> </input></td>
+                <td class="text-c
+                326
+                .enter align-middle">  <input min="0" max="100" type="number" value="'.$nrDeProduse.'" name="input'.$product['productID'].'"> </input></td>
                 <td class="text-center align-middle">'.$valProdus.'$</td>
                 <td class="text-center align-middle">
                 <button type="submit" class="btn btn-warning" name="button'.$product['productID'].'"> Modifica </button></form>
                 </td>
                 </tr>';
-    
                 while($nrDeProduse != 0){
                     array_push($newArray, $product['productID']);
                     $nrDeProduse--;
@@ -55,12 +54,29 @@ if(mysqli_num_rows($query)){
 }  
 echo '<div > 
     <h1 style="color: white">TOTAL: '.$total.' $ </h1>
-        <form method="post">
-            <button type="submit" class="btn btn-success" name="buy">
-                Buy
-            </button>
-        </form>
+    <form method="post" >
+    <button type="submit" class="btn btn-success" name="buy">
+        Buy
+    </button>
+</form>
         </div>';
+
+        if(isset($_POST["buy"])){
+            $_SESSION['products'] = array_count_values($_SESSION['cos']);
+            $idUser = $_SESSION['id_user'];
+            $dataComanda = date("Y-m-d");
+            $querySTMT = "INSERT INTO comenzi (userID,dataComenzii) VALUES ('$idUser','$dataComanda')";
+            $query = mysqli_query($db,$querySTMT);
+            if($query){
+                $id_comanda = $db->insert_id;
+                foreach($_SESSION['products'] as $produsID => $cantitate){
+                    $querySTMT1 = "INSERT INTO comenzi_detalii (orderID,productID,quantity) VALUES ('$id_comanda','$produsID','$cantitate')";
+                    $query1 = mysqli_query($db,$querySTMT1);
+                }
+            }    
+            unset($_SESSION['cos']);
+            echo '<meta http-equiv="refresh" content="0;url=cosHTML.php">';
+        }
 
 
 mysqli_close($db);  

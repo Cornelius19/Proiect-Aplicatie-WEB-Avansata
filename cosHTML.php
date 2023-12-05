@@ -19,8 +19,9 @@
     ">
     <?php
     include 'Components/navbar_log.php';
-    include 'Features/cos.php'
+    include 'Features/cos.php';
     ?>
+   
 
     <script src="js/bootsrap.min.js"></script>
 </body>
