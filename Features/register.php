@@ -17,7 +17,8 @@ $errors = array();
         $user = mysqli_fetch_assoc($result);
 
         if($user){
-            echo "Email deja inregistrat!";
+            $error = "Email deja inregistrat!";
+            showErrorMessage($error, "Error :D");
         }
         else{
             if($password === $repassword ){

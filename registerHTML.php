@@ -44,7 +44,7 @@
                 </div>
                 <div class="col text-center">
                     <button type="submit" class="btn btn-success" name="reg_user">Register</button>
-                    <button type="button" class="btn btn-warning" onClick="document.location.href='logare.php'">Back to
+                    <button type="button" class="btn btn-warning" onClick="document.location.href='logareHTML.php'">Back to
                         LogIn</button>
                 </div>
 
